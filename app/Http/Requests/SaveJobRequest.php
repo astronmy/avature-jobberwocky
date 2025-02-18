@@ -37,9 +37,9 @@ class SaveJobRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'The title is required.',
-            'name.string' => 'The title must be a valid text.',
-            'name.max' => 'The title must not exceed 100 characters.',
+            'name.required' => 'The name is required.',
+            'name.string' => 'The name must be a valid text.',
+            'name.max' => 'The name must not exceed 100 characters.',
 
             'company.required' => 'The company name is required.',
             'company.string' => 'The company name must be a valid text.',

@@ -12,6 +12,7 @@ php artisan migrate:fresh
 php artisan config:clear
 php artisan cache:clear
 php artisan optimize:clear
+composer dump-autoload
 
 echo "Iniciando PHP"
 php-fpm
