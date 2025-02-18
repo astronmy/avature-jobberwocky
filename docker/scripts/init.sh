@@ -9,6 +9,9 @@ php artisan storage:link
 
 echo "Haciendo una instalación limpia de datos corriendo las migraciones"
 php artisan migrate:fresh
+php artisan config:clear
+php artisan cache:clear
+php artisan optimize:clear
 
 echo "Iniciando PHP"
 php-fpm

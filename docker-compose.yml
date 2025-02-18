@@ -23,55 +23,58 @@ services:
             - ./storage:/var/www/storage
             - ./bootstrap/cache:/var/www/bootstrap/cache
         depends_on:
-            mysql:
-                condition: service_healthy
-            redis:
+            mongo:
                 condition: service_healthy
         healthcheck:
-            test: [ "CMD", "php-fpm", "-t" ]
+            test: [ "CMD", "php", "-r", "echo 'OK';" ]
             interval: 5s
             retries: 3
         networks:
             - jobberwocky_network
 
-    mysql:
-        image: mysql:8.0
-        container_name: jobberwocky_db
+    mongo:
+        image: mongo:7.0
+        container_name: jobberwocky_mongo
         restart: always
+        ports:
+            -   "27017:27017"
+        networks:
+            - jobberwocky_network
         environment:
-            MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: jobber
-            MYSQL_USER: api_jobber
-            MYSQL_PASSWORD: secret
-        ports:
-            - "3307:3306"
+            MONGO_INITDB_ROOT_USERNAME: admin
+            MONGO_INITDB_ROOT_PASSWORD: secret
+            MONGO_INITDB_DATABASE: jobberwocky_jobs
         volumes:
-            - db_data:/var/lib/mysql
-        networks:
-            - jobberwocky_network
+            - mongo_data:/data/db
         healthcheck:
-            test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+            test: [ "CMD", "mongosh", "--quiet", "--eval", "db.runCommand('ping').ok", "--host", "localhost:27017", "--username", "admin", "--password", "secret", "--authenticationDatabase", "admin" ]
+            interval: 10s
             timeout: 5s
-            retries: 10
+            retries: 3
+            start_period: 5s
 
-    redis:
-        image: redis:7.0-alpine
-        container_name: jobberwocky_redis
-        restart: unless-stopped
+    mongo-express:
+        image: mongo-express
+        container_name: mongo_express_viewer
+        restart: always
         ports:
-            -   "6379:6379"
+            - "8081:8081"
+        environment:
+            ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+            ME_CONFIG_MONGODB_ADMINPASSWORD: secret
+            ME_CONFIG_MONGODB_URL: mongodb://admin:secret@mongo:27017/
+        depends_on:
+            mongo:
+                condition: service_healthy
         networks:
             - jobberwocky_network
-        healthcheck:
-            test: [ "CMD", "redis-cli", "ping" ]
-            timeout: 5s
-            retries: 5
 
     extra_source_api:
         build:
             context: ./docker/extra-source
             dockerfile: Dockerfile
         container_name: avature_external_api
+        restart: always
         volumes:
             - ./docker/extra_source:/app
         ports:
@@ -81,7 +84,7 @@ services:
         environment:
             - NODE_ENV=production
 volumes:
-    db_data:
+    mongo_data:
 
 networks:
     jobberwocky_network:
