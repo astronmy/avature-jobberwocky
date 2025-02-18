@@ -9,7 +9,8 @@ class JobOffer extends Model
     protected $connection = 'mongodb';
     protected $collection = 'jobs_offers';
     protected $fillable = [
-        'title', 'company', 'location', 'description', 'modality', 'skills', 'created_at'
+        'name', 'company', 'location', 'description', 'modality', 'skills', 'created_at',
+        'country', 'salary'
     ];
     protected $casts = [
         'skills' => 'array',

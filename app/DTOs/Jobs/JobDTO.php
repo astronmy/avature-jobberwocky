@@ -8,12 +8,14 @@ final class JobDto
 
     public function __construct(
         public readonly string $id,
-        public readonly string $title,
+        public readonly string $name,
         public readonly string $company,
         public readonly string $location,
         public readonly string $description,
         public readonly string $modality,
         public readonly mixed $skills,
+        public readonly float $salary,
+        public readonly string $country,
         public readonly string $created_at,
     ) {}
 
@@ -21,12 +23,14 @@ final class JobDto
     {
         $instance = new self(
             id: $data['id'] ?? uniqid(),
-            title: $data['title'] ?? 'No Title',
+            name: $data['name'] ?? 'No Name',
             company: $data['company'] ?? 'Unknown Company',
             location: $data['location'] ?? 'Remote',
             description: $data['description'] ?? '',
             modality: $data['modality'] ?? 'remote',
             skills: $data['skills'] ?? '',
+            salary: isset($data['salary']) ? (float) $data['salary'] : 0.0,
+            country: $data['country'] ?? 'Unknown',
             created_at: $data['created_at'] ?? now()->toDateTimeString(),
         );
 
@@ -37,12 +41,14 @@ final class JobDto
     {
         return [
             'id' => $this->id,
-            'title' => $this->title,
+            'name' => $this->name,
             'company' => $this->company,
             'location' => $this->location,
             'description' => $this->description,
             'modality' => $this->modality,
             'skills' => implode(',', $this->skills),
+            'salary' => $this->salary,
+            'country' => $this->country,
             'created_at' => $this->created_at,
         ];
     }
@@ -51,12 +57,14 @@ final class JobDto
     {
         return new self(
             id: $this->id,
-            title: $this->title,
+            name: $this->name,
             company: $this->company,
             location: $this->location,
             description: $this->description,
             modality: $this->validateModality($this->modality),
             skills: $this->parseSkills($this->skills),
+            salary: max(0, $this->salary),
+            country: $this->country,
             created_at: $this->created_at,
         );
     }

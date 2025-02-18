@@ -22,22 +22,24 @@ class SaveJobRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:100'],
             'company' => ['required', 'string', 'max:255'],
             'location' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
             'modality' => ['required', 'string', 'in:remote,hybrid,presential,part-time,full-time'],
             'skills' => ['nullable', 'string', 'regex:/^[\w\s,]+$/'],
             'created_at' => ['nullable', 'date_format:Y-m-d H:i:s'],
+            'salary' => ['nullable', 'numeric', 'min:0'],
+            'country' => ['required', 'string', 'min:2', 'max:100']
         ];
     }
 
     public function messages(): array
     {
         return [
-            'title.required' => 'The title is required.',
-            'title.string' => 'The title must be a valid text.',
-            'title.max' => 'The title must not exceed 255 characters.',
+            'name.required' => 'The title is required.',
+            'name.string' => 'The title must be a valid text.',
+            'name.max' => 'The title must not exceed 100 characters.',
 
             'company.required' => 'The company name is required.',
             'company.string' => 'The company name must be a valid text.',
@@ -53,8 +55,16 @@ class SaveJobRequest extends FormRequest
             'modality.string' => 'The modality must be a valid text.',
             'modality.in' => 'The modality must be one of the following options: remote, hybrid, presential, part-time, full-time.',
 
+            'salary.numeric' => 'The minimum salary must be a number.',
+            'salary.min' => 'The minimum salary cannot be negative.',
+
             'skills.string' => 'The skills must be a valid text.',
             'skills.regex' => 'The skills format is incorrect. Use words separated by commas.',
+
+            'country.required' => 'The country is required.',
+            'country.string' => 'The country must be a valid text.',
+            'country.min' => 'The country must be at least 2 characters long.',
+            'country.max' => 'The country must not exceed 100 characters.',
 
             'created_at.date_format' => 'The creation date must be in the format YYYY-MM-DD HH:MM:SS.',
         ];

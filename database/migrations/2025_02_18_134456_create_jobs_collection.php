@@ -12,11 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::connection('mongodb')->create('jobs_offers', function (Blueprint $collection) {
-            $collection->index('title');
-            $collection->index('company');
+            $collection->index('name');
             $collection->index('modality');
+            $collection->index('salary');
             $collection->index('skills');
-            $collection->index('created_at');
         });
     }
 

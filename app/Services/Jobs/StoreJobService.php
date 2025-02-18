@@ -5,14 +5,13 @@ namespace App\Services\Jobs;
 use App\Dtos\Jobs\JobDto;
 use App\Repositories\JobRepository;
 
-final readonly class StoreJobService {
+final class StoreJobService {
 
-    public function __construct(private JobRepository $jobRepository) {}
+    public function __construct(private readonly JobRepository $jobRepository) {}
 
-    public function __invoke(JobDto $jobData) : array
+    public function __invoke(JobDto $jobData) : object
     {
-        $job = $this->jobRepository->create($jobData);
-        return [$job];
+        return $this->jobRepository->create($jobData);
     }
 
 }
