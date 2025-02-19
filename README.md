@@ -1,9 +1,11 @@
 ## Introduction
-A holistic solution was designed to allow comprehensive testing through container deployment, eliminating the need for manual installations.
+A holistic solution was designed to enable comprehensive testing through container deployment, eliminating the need for manual installations.
 
-Although the challenge suggested using file-based persistence, SQLite, or other options, I chose MongoDB as the database.
+Although the challenge suggested using file-based persistence, SQLite, or other alternatives, I chose MongoDB as the database.
 
-Regarding TDD, only one test is included. While it is brief, the entire project was thoroughly tested. However, I couldn't dedicate as much time to writing additional tests as I would have liked. Similarly, some query structures might be subject to optimization or improvement.
+Regarding the integration of external data with API-generated information, I opted for a simple approach—querying both sources and merging the responses. This can certainly be improved by adding features like pagination or optimized search algorithms.
+
+In terms of TDD, only one test is included. While it is brief, the entire project was thoroughly tested. However, I couldn't dedicate as much time to writing additional tests as I would have liked. Similarly, some query structures might be subject to optimization or improvement.
 
 ## Build and Deploy Containers
 ```
