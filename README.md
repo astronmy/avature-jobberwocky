@@ -1,3 +1,10 @@
+## Introduction
+A holistic solution was designed to allow comprehensive testing through container deployment, eliminating the need for manual installations.
+
+Although the challenge suggested using file-based persistence, SQLite, or other options, I chose MongoDB as the database.
+
+Regarding TDD, only one test is included. While it is brief, the entire project was thoroughly tested. However, I couldn't dedicate as much time to writing additional tests as I would have liked. Similarly, some query structures might be subject to optimization or improvement.
+
 ## Build and Deploy Containers
 ```
 docker-compose up -d --build
