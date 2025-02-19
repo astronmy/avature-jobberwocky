@@ -32,6 +32,19 @@ services:
         networks:
             - jobberwocky_network
 
+    mailhog:
+        image: mailhog/mailhog
+        container_name: mailhog
+        platform: linux/amd64
+        ports:
+            - "8025:8025"
+            - "1025:1025"
+        depends_on:
+            php:
+                condition: service_healthy
+        networks:
+            - jobberwocky_network
+
     mongo:
         image: mongo:7.0
         container_name: jobberwocky_mongo
@@ -60,6 +73,8 @@ services:
         ports:
             - "8081:8081"
         environment:
+            ME_CONFIG_BASICAUTH_USERNAME: admin
+            ME_CONFIG_BASICAUTH_PASSWORD: secret
             ME_CONFIG_MONGODB_ADMINUSERNAME: admin
             ME_CONFIG_MONGODB_ADMINPASSWORD: secret
             ME_CONFIG_MONGODB_URL: mongodb://admin:secret@mongo:27017/

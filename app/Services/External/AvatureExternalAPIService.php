@@ -2,10 +2,7 @@
 
 namespace App\Services\External;
 
-use App\Dtos\Jobs\JobDto;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Str;
 
 final class AvatureExternalAPIService  {
     public function getExternalOffers(array $queryParams): mixed

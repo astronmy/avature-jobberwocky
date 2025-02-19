@@ -1,18 +1,26 @@
 #!/bin/bash
 
 set -e
-echo "Instalando dependencias de Composer..."
-composer install --no-dev --optimize-autoloader
+echo "Installing composer dependencies..."
+composer install  --optimize-autoloader
 
-echo "Creando enlace simbólico ..."
+echo "Making symbolic link ..."
 php artisan storage:link
 
-echo "Haciendo una instalación limpia de datos corriendo las migraciones"
+echo "Recreate database instance"
 php artisan migrate:fresh
+
+echo "load initial information"
+php artisan db:seed
+
+echo "Clean cache and configs"
 php artisan config:clear
 php artisan cache:clear
 php artisan optimize:clear
 composer dump-autoload
 
-echo "Iniciando PHP"
+echo "Run tests"
+php artisan test
+
+echo "Start PHP"
 php-fpm

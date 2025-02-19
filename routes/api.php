@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\SubscribersController;
 
 
 Route::prefix('v1')->group(function () {
@@ -10,6 +11,7 @@ Route::prefix('v1')->group(function () {
         Route::delete('/{job_id}', [JobController::class, 'deleteJob']);
         Route::post('/', [JobController::class, 'storeJob']);
     });
-    Route::prefix('alerts')->group(function () {
+    Route::prefix('subscribers')->group(function () {
+        Route::post('/', [SubscribersController::class, 'saveSubscriber']);
     });
 });

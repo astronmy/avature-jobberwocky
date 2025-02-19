@@ -1,0 +1,726 @@
+{
+	"info": {
+		"_postman_id": "c248eb8f-42c1-4828-a6a6-3644a586d3d4",
+		"name": "Avature Jobberwocky API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1661680"
+	},
+	"item": [
+		{
+			"name": "Jobs",
+			"item": [
+				{
+					"name": "Get Jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_uri}}/jobs?name=QA&country=ARG",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "QA"
+								},
+								{
+									"key": "country",
+									"value": "ARG"
+								},
+								{
+									"key": "salary_min",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "salary_max",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_uri}}/jobs?name=Cloud",
+									"host": [
+										"{{base_uri}}"
+									],
+									"path": [
+										"jobs"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Cloud"
+										},
+										{
+											"key": "country",
+											"value": "ARG",
+											"disabled": true
+										},
+										{
+											"key": "salary_min",
+											"value": "3000",
+											"disabled": true
+										},
+										{
+											"key": "salary_max",
+											"value": "4000",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.24.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.27"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Feb 2025 19:50:26 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"\",\n            \"name\": \"Cloud Engineer\",\n            \"company\": \"Unknown Company\",\n            \"location\": \"Remote\",\n            \"description\": \"\",\n            \"modality\": \"remote\",\n            \"country\": \"USA\",\n            \"salary\": 65000,\n            \"skills\": [\n                \"AWS\",\n                \"Azure\",\n                \"Docker\"\n            ],\n            \"created_at\": \"18-02-2025\"\n        },\n        {\n            \"id\": \"\",\n            \"name\": \"Cloud Engineer\",\n            \"company\": \"UALA\",\n            \"location\": \"Buenos Aires, Arg\",\n            \"description\": \"We are looking for a skilled Software Engineer to join our team.\",\n            \"modality\": \"presential\",\n            \"country\": \"ARG\",\n            \"salary\": 3500,\n            \"skills\": [\n                \"NodeJs\"\n            ],\n            \"created_at\": \"18-02-2025\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Job",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_uri}}/jobs/:jobId",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"jobs",
+								":jobId"
+							],
+							"variable": [
+								{
+									"key": "jobId",
+									"value": "67b4ea21e443fcd79501bd221"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_uri}}/jobs/:jobId",
+									"host": [
+										"{{base_uri}}"
+									],
+									"path": [
+										"jobs",
+										":jobId"
+									],
+									"variable": [
+										{
+											"key": "jobId",
+											"value": "67b4cf91a6825105320b4242"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.24.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.27"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Feb 2025 18:21:28 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"67b4cf91a6825105320b4242\",\n        \"name\": \"Software Engineer\",\n        \"company\": \"UALA\",\n        \"location\": \"Buenos Aires, Arg\",\n        \"description\": \"We are looking for a skilled Software Engineer to join our team.\",\n        \"modality\": \"presential\",\n        \"country\": \"ARG\",\n        \"salary\": 3500,\n        \"skills\": \"NodeJs\",\n        \"created_at\": \"18-02-2025\"\n    }\n}"
+						},
+						{
+							"name": "404 Not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_uri}}/jobs/:jobId",
+									"host": [
+										"{{base_uri}}"
+									],
+									"path": [
+										"jobs",
+										":jobId"
+									],
+									"variable": [
+										{
+											"key": "jobId",
+											"value": "67b4ea21e443fcd79501bd221"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.24.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.27"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Feb 2025 20:14:42 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"100\",\n    \"message\": \"Resource not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Store Job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Software Engineer\",\n    \"company\": \"UALA\",\n    \"location\": \"Buenos Aires, Arg\",\n    \"description\": \"We are looking for a skilled Software Engineer to join our team.\",\n    \"modality\": \"hybrid\",\n    \"country\": \"USA\",\n    \"salary\": 10,\n    \"skills\": \"NodeJs, EC2, Lambda\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_uri}}/jobs",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"jobs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201 Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Software Engineer\",\n    \"company\": \"UALA\",\n    \"location\": \"Buenos Aires, Arg\",\n    \"description\": \"We are looking for a skilled Software Engineer to join our team.\",\n    \"modality\": \"presential\",\n    \"country\": \"ARG\",\n    \"salary\": 3500,\n    \"skills\": \"NodeJs\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_uri}}/jobs",
+									"host": [
+										"{{base_uri}}"
+									],
+									"path": [
+										"jobs"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.24.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.27"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Feb 2025 18:21:05 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"67b4cf91a6825105320b4242\",\n        \"name\": \"Software Engineer\",\n        \"company\": \"UALA\",\n        \"location\": \"Buenos Aires, Arg\",\n        \"description\": \"We are looking for a skilled Software Engineer to join our team.\",\n        \"modality\": \"presential\",\n        \"country\": \"ARG\",\n        \"salary\": 3500,\n        \"skills\": \"NodeJs\",\n        \"created_at\": \"18-02-2025\"\n    }\n}"
+						},
+						{
+							"name": "400 Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"location\": \"Buenos Aires, Arg\",\n    \"description\": \"We are looking for a skilled Software Engineer to join our team.\",\n    \"modality\": \"presential\",\n    \"country\": \"ARG\",\n    \"salary\": 3500,\n    \"skills\": \"NodeJs\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_uri}}/jobs",
+									"host": [
+										"{{base_uri}}"
+									],
+									"path": [
+										"jobs"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.24.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.27"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Feb 2025 20:10:16 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"0\",\n    \"message\": \"The name is required. (and 1 more error)\",\n    \"errors_details\": {\n        \"name\": [\n            \"The name is required.\"\n        ],\n        \"company\": [\n            \"The company name is required.\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Job",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Software Engineer\",\n    \"company\": \"UALA\",\n    \"location\": \"Buenos Aires, Arg\",\n    \"description\": \"We are looking for a skilled Software Engineer to join our team.\",\n    \"modality\": \"presential\",\n    \"country\": \"ARG\",\n    \"salary_min\": 1500,\n    \"salary_max\": 3000,\n    \"skills\": \"NodeJs, EC2, Lambda\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_uri}}/jobs/:jobId",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"jobs",
+								":jobId"
+							],
+							"variable": [
+								{
+									"key": "jobId",
+									"value": "67b4e9637ba10cdd510ae9a2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "409 Conflict",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Software Engineer\",\n    \"company\": \"UALA\",\n    \"location\": \"Buenos Aires, Arg\",\n    \"description\": \"We are looking for a skilled Software Engineer to join our team.\",\n    \"modality\": \"presential\",\n    \"country\": \"ARG\",\n    \"salary_min\": 1500,\n    \"salary_max\": 3000,\n    \"skills\": \"NodeJs, EC2, Lambda\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_uri}}/jobs/:jobId",
+									"host": [
+										"{{base_uri}}"
+									],
+									"path": [
+										"jobs",
+										":jobId"
+									],
+									"variable": [
+										{
+											"key": "jobId",
+											"value": "67b4e9637ba10cdd510ae9a2111"
+										}
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.24.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.27"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Feb 2025 20:20:36 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"100\",\n    \"message\": \"Job couldn't be deleted\"\n}"
+						},
+						{
+							"name": "204 No Content Deleted",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Software Engineer\",\n    \"company\": \"UALA\",\n    \"location\": \"Buenos Aires, Arg\",\n    \"description\": \"We are looking for a skilled Software Engineer to join our team.\",\n    \"modality\": \"presential\",\n    \"country\": \"ARG\",\n    \"salary_min\": 1500,\n    \"salary_max\": 3000,\n    \"skills\": \"NodeJs, EC2, Lambda\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_uri}}/jobs/:jobId",
+									"host": [
+										"{{base_uri}}"
+									],
+									"path": [
+										"jobs",
+										":jobId"
+									],
+									"variable": [
+										{
+											"key": "jobId",
+											"value": "67b4e9637ba10cdd510ae9a2"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.24.0"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.27"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Feb 2025 20:21:13 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Subscribers",
+			"item": [
+				{
+					"name": "Save Subscriber",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"renzvinci@gmail.com\",\n  \"alert_method\": \"email\",\n  \"job_preferences\": {\n    \"job_name\": \"Software Engineer\",\n    \"salary_min\": 50000,\n    \"salary_max\": 120000,\n    \"country\": [\"USA\", \"Canada\", \"UK\"],\n    \"modality\": [\"remote\", \"hybrid\"]\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_uri}}/subscribers",
+							"host": [
+								"{{base_uri}}"
+							],
+							"path": [
+								"subscribers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"renzvinci@gmail.com\",\n  \"alert_method\": \"email\",\n  \"job_preferences\": {\n    \"job_name\": \"Software Engineer\",\n    \"salary_min\": 50000,\n    \"salary_max\": 120000,\n    \"country\": [\"USA\", \"Canada\", \"UK\"],\n    \"modality\": [\"remote\", \"hybrid\"]\n  }\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_uri}}/subscribers",
+									"host": [
+										"{{base_uri}}"
+									],
+									"path": [
+										"subscribers"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.24.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.27"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Feb 2025 22:06:11 GMT"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"67b5045341e5445bc80203c2\",\n        \"name\": \"John Doe\",\n        \"email\": \"renzvinci@gmail.com\",\n        \"alert_method\": \"email\",\n        \"job_preferences\": {\n            \"job_name\": \"Software Engineer\",\n            \"salary_min\": 50000,\n            \"salary_max\": 120000,\n            \"country\": [\n                \"USA\",\n                \"Canada\",\n                \"UK\"\n            ],\n            \"modality\": [\n                \"remote\",\n                \"hybrid\"\n            ]\n        },\n        \"created_at\": \"18-02-2025\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_uri",
+			"value": "http://127.0.0.1/api/v1",
+			"type": "string"
+		}
+	]
+}
